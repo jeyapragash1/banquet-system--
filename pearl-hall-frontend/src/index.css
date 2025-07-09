@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  This is the new, correct way to add our custom animations.
+  We add them to the "utilities" layer so we can use them like any other Tailwind class.
+*/
+@layer utilities {
+  /* 1. The bright, flowing background gradient animation */
+  @keyframes gradient-background {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  .animate-gradient-background {
+    animation: gradient-background 15s ease infinite;
+  }
+
+  /* 2. The "video-like" Ken Burns effect for images */
+  @keyframes ken-burns {
+    0% { transform: scale(1.1) translate(0, 0); }
+    50% { transform: scale(1.2) translate(-10px, 10px); }
+    100% { transform: scale(1.1) translate(0, 0); }
+  }
+  .animate-ken-burns {
+    animation: ken-burns 20s ease-out infinite;
+  }
+
+  /* 3. The smooth fade-in animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInDown {
+    animation: fadeInDown 1s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+}
+
+/* Your custom body styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
