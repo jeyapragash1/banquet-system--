@@ -2,6 +2,6 @@
   'tax' => 
   array (
     'type' => 'Percentage',
-    'value' => '7.9',
+    'value' => '0.0',
   ),
 );
